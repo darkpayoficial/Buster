@@ -98,6 +98,37 @@
             color: var(--foreground);
         }
 
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background);
+            transition: opacity 0.2s;
+        }
+
+        #loading-screen.loaded {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: 9px solid;
+            border-color: var(--primary);
+            border-right-color: transparent;
+            animation: spinner-d3wgkg 1s infinite linear;
+        }
+
+        @keyframes spinner-d3wgkg {
+            to {
+                transform: rotate(1turn);
+            }
+        }
     </style>
 
     <meta name="description" content="{{ $description }}">
@@ -135,7 +166,17 @@
 </head>
 
 <body class="font-sans antialiased">
+    <div id="loading-screen">
+        <div class="spinner"></div>
+    </div>
     @inertia
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loading-screen').classList.add('loaded');
+            }, 500);
+        });
+    </script>
 </body>
 
 </html>
