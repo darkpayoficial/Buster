@@ -55,6 +55,7 @@
         "concurrently": "^9.0.1",
         "globals": "^15.14.0",
         "laravel-vite-plugin": "^1.0",
+        "lightningcss": "^1.32.0",
         "lucide-react": "^0.475.0",
         "qrcode": "^1.5.4",
         "react": "^19.0.0",
@@ -69,6 +70,7 @@
         "vite": "^6.0"
     },
     "optionalDependencies": {
+        "@rollup/rollup-android-arm64": "^4.60.3",
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
         "@tailwindcss/oxide-linux-x64-gnu": "^4.0.1",
         "lightningcss-linux-x64-gnu": "^1.29.1"
