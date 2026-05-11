@@ -1,0 +1,119 @@
+SCRIPT DISTRIBUÍDO GRATUITAMENTE. TELEGRAM: https://t.me/+3JBRSgl7PPRlYThh
+
+Conta na Hostinger
+O arquivo ZIP do sistema
+Um computador com internet
+
+Passo 1: Preparando a Hostinger
+
+1.1 - Acessar o painel da Hostinger
+Entre no site da Hostinger (hostinger.com.br)
+Faça login na sua conta
+Vá em "Hospedagem" no menu principal
+Clique no seu plano de hospedagem
+
+1.2 - Criar o banco de dados
+No painel da Hostinger, procure por "Banco de Dados MySQL"
+Clique em "Gerenciar"
+Clique em "Criar novo banco de dados"
+Dê um nome para o banco (exemplo: meusite_db)
+Crie um usuário para o banco:
+
+Nome do usuário (exemplo: meusite_user)
+Senha forte (anote essa senha!)
+
+Clique em "Criar"
+
+⚠️ IMPORTANTE: Anote essas informações:
+
+Nome do banco de dados
+
+Nome do usuário
+
+Senha do usuário
+
+Host (geralmente é localhost)
+
+Passo 2: Enviando os arquivos
+
+2.1 - Acessar o gerenciador de arquivos
+No painel da Hostinger, procure por "Gerenciador de arquivos"
+Clique em "Gerenciar"
+Você verá uma pasta chamada public_html - é aqui que vamos colocar tudo
+
+2.2 - Fazer upload do arquivo ZIP
+Entre na pasta public_html
+Clique no botão "Upload" (ícone de seta para cima)
+Selecione o arquivo ZIP do sistema no seu computador
+Aguarde o upload terminar (pode demorar alguns minutos)
+
+2.3 - Descompactar o arquivo
+Após o upload, você verá o arquivo ZIP na lista
+Clique com o botão direito no arquivo ZIP
+Selecione "Extrair" ou "Descompactar" ou "Desarquivar"
+Coloque uma "/" no nome da pasta
+Clique em DESARQUIVAR
+Aguarde a extração terminar
+Depois pode deletar o arquivo ZIP (não precisamos mais dele)
+
+Passo 3: Configurar banco de dados
+
+Abra o arquivo:
+
+/.env
+
+Coloque sua URL sem o "/" no final e com https, exemplo:
+
+APP_URL=https://seusite.com
+
+
+Edite os dados de conexão no banco de dados:
+
+DB_CONNECTION=mysql
+DB_HOST=localhost
+DB_PORT=3306
+DB_DATABASE=nome do banco     // nome do banco criado
+DB_USERNAME=usuário criado    // usuário criado
+DB_PASSWORD=senha             // senha criada
+
+
+Salve e feche
+
+Passo 4: Importando as tabelas do banco
+
+4.1 - Acessar o phpMyAdmin
+Volte ao painel principal da Hostinger
+Procure por "phpMyAdmin"
+Clique em "Acessar"
+Faça login (se necessário) com os dados do banco que você criou
+
+4.2 - Importar o arquivo SQL
+No phpMyAdmin, clique no nome do seu banco de dados (lado esquerdo)
+Clique na aba "Importar" (no topo)
+Clique em "Escolher arquivo"
+Extraia o ZIP que você baixou em seu computador (provavelmente está na pasta Downloads)
+Procure o arquivo .sql (vem dentro do ZIP extraído)
+
+Clique em Executar
+
+Se tudo deu certo, vai aparecer a mensagem de sucesso
+
+Passo 5: Testando o sistema
+
+Abra o navegador
+Digite: seudominio.com
+O site deve carregar normalmente
+
+Passo 6: Acessando o Admin
+
+Entre em:
+seudominio.com/admin/login
+
+Login: adm@gmail.com
+
+Senha: admin123
+
+Acesse → Gateways
+
+Configure o gateway:
+→ PixUp

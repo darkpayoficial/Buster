@@ -1,0 +1,9 @@
+.env
+node_modules/
+vendor/
+storage/logs/*
+storage/framework/cache/*
+bootstrap/cache/*.php
+*.log
+.DS_Store
+Thumbs.db

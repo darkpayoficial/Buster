@@ -1,0 +1,32 @@
+:root {
+    /* Layout */
+    --radius: 0.625rem;
+    --spacing: 0.25rem;
+    --max-layout-width: 1400px;
+    --surface: oklch(20.5% 0 0);
+    
+    /* Charts */
+    --chart-1: oklch(0.7681 0.2044 130.8498);
+    --chart-2: oklch(0.8493 0.2073 128.8497);
+    --chart-3: oklch(0.8972 0.1786 126.6652);
+    --chart-4: oklch(0.9382 0.1217 124.3211);
+    --chart-5: oklch(0.9669 0.0659 122.3278);
+    
+    /* Shadows */
+    --shadow-color: oklch(0 0 0);
+    --shadow-2xs: 0 2px 4px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 2px 4px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 2px 4px 0px hsl(0 0% 0% / 0.25);
+    
+    /* Typography */
+    --tracking-normal: 0rem;
+    
+    /* Destructive */
+    --destructive: oklch(0.583 0.2387 28.4765);
+    --destructive-foreground: oklch(0.6378 0.2373 25.4359);
+} 

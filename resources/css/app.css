@@ -1,0 +1,306 @@
+@import 'tailwindcss';
+/* @import './theme-defaults.css'; */
+@plugin 'tailwindcss-animate';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+/* Configuração do tema dark como padrão */
+@custom-variant dark (&:is(.dark *));
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-surface: var(--surface);
+    --color-popover: var(--popover);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    --easing-smooth: cubic-bezier(.165,.84,.44,1);
+    --max-layout-width: 1400px;
+    
+    --primary-foreground: oklch(20.5% 0 0);
+    --secondary-foreground: oklch(98.5% 0 0);
+    --accent-foreground: oklch(98.5% 0 0);
+    --destructive: oklch(57.7% .245 27.325);
+    --destructive-foreground: oklch(63.7% .237 25.331);
+    --popover: oklch(14.5% 0 0);
+    --popover-foreground: oklch(98.5% 0 0);
+    
+    --radius: 0.625rem;
+    --spacing: 0.25rem;
+    color-scheme: dark;
+    scroll-padding: 16px;
+    font-family: Satoshi, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+        
+    /* Charts */
+    --chart-1: oklch(0.7681 0.2044 130.8498);
+    --chart-2: oklch(0.8493 0.2073 128.8497);
+    --chart-3: oklch(0.8972 0.1786 126.6652);
+    --chart-4: oklch(0.9382 0.1217 124.3211);
+    --chart-5: oklch(0.9669 0.0659 122.3278);
+    
+    /* Shadows */
+    --shadow-color: oklch(0 0 0);
+    --shadow-2xs: 0 2px 4px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 2px 4px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 2px 4px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 2px 4px 0px hsl(0 0% 0% / 0.25);
+    
+    /* Typography */
+    --tracking-normal: 0rem;
+}
+
+/* Swiper Pagination Styles */
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 0.3s opacity;
+    transform: translateZ(0);
+    z-index: 10;
+}
+.swiper-pagination.swiper-pagination-hidden {
+    opacity: 0;
+}
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination.swiper-pagination-disabled {
+    display: none !important;
+}
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, 8px);
+    top: var(--swiper-pagination-top, auto);
+    left: 0;
+    width: 100%;
+}
+.swiper-pagination-bullets-dynamic {
+    overflow: hidden;
+    font-size: 0;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transform: scale(0.33);
+    position: relative;
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active,
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+    transform: scale(1);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next {
+    transform: scale(0.66);
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-next-next {
+    transform: scale(0.33);
+}
+.swiper-pagination-bullet {
+    width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 8px));
+    height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 8px));
+    display: inline-block;
+    border-radius: var(--swiper-pagination-bullet-border-radius, 50%);
+    background: var(--swiper-pagination-bullet-inactive-color, #000);
+    opacity: var(--swiper-pagination-bullet-inactive-opacity, 0.2);
+}
+button.swiper-pagination-bullet {
+    border: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.swiper-pagination-clickable .swiper-pagination-bullet {
+    cursor: pointer;
+}
+.swiper-pagination-bullet:only-child {
+    display: none !important;
+}
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+}
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
+    right: var(--swiper-pagination-right, 8px);
+    left: var(--swiper-pagination-left, auto);
+    top: 50%;
+    transform: translate3d(0, -50%, 0);
+}
+.swiper-vertical > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: var(--swiper-pagination-bullet-vertical-gap, 6px) 0;
+    display: block;
+}
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+}
+.swiper-vertical > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-vertical.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    display: inline-block;
+    transition:
+        0.2s transform,
+        0.2s top;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 4px);
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+    left: 50%;
+    transform: translate(-50%);
+    white-space: nowrap;
+}
+.swiper-horizontal > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition:
+        0.2s transform,
+        0.2s left;
+}
+.swiper-horizontal.swiper-rtl > .swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+    transition:
+        0.2s transform,
+        0.2s right;
+}
+.swiper-pagination-fraction {
+    color: var(--swiper-pagination-fraction-color, inherit);
+}
+.swiper-pagination-progressbar {
+    background: var(--swiper-pagination-progressbar-bg-color, rgba(0, 0, 0, 0.25));
+    position: absolute;
+}
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    background: var(--swiper-pagination-color, var(--swiper-theme-color));
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transform-origin: left top;
+}
+.swiper-rtl .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+    transform-origin: right top;
+}
+.swiper-horizontal > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-horizontal,
+.swiper-vertical > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-vertical.swiper-pagination-progressbar-opposite {
+    width: 100%;
+    height: var(--swiper-pagination-progressbar-size, 4px);
+    left: 0;
+    top: 0;
+}
+.swiper-vertical > .swiper-pagination-progressbar,
+.swiper-pagination-progressbar.swiper-pagination-vertical,
+.swiper-horizontal > .swiper-pagination-progressbar.swiper-pagination-progressbar-opposite,
+.swiper-pagination-progressbar.swiper-pagination-horizontal.swiper-pagination-progressbar-opposite {
+    width: var(--swiper-pagination-progressbar-size, 4px);
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+.swiper-pagination-lock {
+    display: none;
+}
+
+/* Custom Variables for Hero Banner */
+.hero-swiper {
+    --swiper-pagination-bullet-size: 12px;
+    --swiper-pagination-bullet-inactive-color: rgba(255, 255, 255, 0.4);
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-color: #ffffff;
+    --swiper-pagination-bullet-opacity: 1;
+    --swiper-pagination-bullet-horizontal-gap: 6px;
+    --swiper-pagination-bottom: 16px;
+}
+
+/* Hero Banner Custom Pagination */
+
+@media (hover: hover) {
+    .group-hover\:animate-wiggle:is(:where(.group):hover *) {
+        animation:1s ease-in-out infinite wiggle
+    }
+
+    .group-hover\:bg-muted-foreground\/20:is(:where(.group):hover *) {
+        background-color: var(--muted-foreground)
+    }
+
+    @supports (color: color-mix(in lab,red,red)) {
+        .group-hover\:bg-muted-foreground\/20:is(:where(.group):hover *) {
+            background-color:color-mix(in oklab,var(--muted-foreground)20%,transparent)
+        }
+    }
+
+    .group-hover\:opacity-100:is(:where(.group):hover *),.group-hover\/hero\:opacity-100:is(:where(.group\/hero):hover *) {
+        opacity: 1
+    }
+}
+@keyframes wiggle{0%,to{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+
