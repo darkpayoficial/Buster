@@ -161,7 +161,7 @@
 
     @routes
     @viteReactRefresh
-    @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+    @vite(['resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
     @inertiaHead
 </head>
 
@@ -171,11 +171,31 @@
     </div>
     @inertia
     <script>
+        // Error handling for JavaScript
+        window.onerror = function(msg, url, line, col, error) {
+            console.error('JS Error:', msg, 'at', url, line, col);
+            document.getElementById('loading-screen').innerHTML = '<div style="color:#f44;padding:20px;text-align:center;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:#111;border-radius:10px;"><h3>Erro JavaScript</h3><p>' + msg + '</p><button onclick="location.reload()" style="background:#28e504;color:#000;border:none;padding:10px 20px;border-radius:5px;cursor:pointer;">Recarregar</button></div>';
+            return false;
+        };
+
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - starting timeout');
             setTimeout(function() {
-                document.getElementById('loading-screen').classList.add('loaded');
+                console.log('Hiding loading screen');
+                var ls = document.getElementById('loading-screen');
+                if (ls) ls.classList.add('loaded');
+                console.log('Loading screen hidden');
             }, 500);
         });
+
+        // Fallback: hide loading screen after 3s even if DOMContentLoaded doesn't fire
+        setTimeout(function() {
+            var ls = document.getElementById('loading-screen');
+            if (ls && !ls.classList.contains('loaded')) {
+                console.log('Fallback: hiding loading screen');
+                ls.classList.add('loaded');
+            }
+        }, 3000);
     </script>
 </body>
 
